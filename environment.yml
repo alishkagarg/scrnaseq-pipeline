@@ -7,6 +7,7 @@ dependencies:
   - scanpy>=1.9
   - anndata
   - leidenalg
+  - harmonypy
   - matplotlib
   - seaborn
   - pandas

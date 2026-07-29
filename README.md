@@ -1,32 +1,47 @@
-# Single-Cell RNA-seq Analysis: PBMC 3k
+# Single-Cell RNA-seq Analysis
 
-Standard single-cell RNA-seq analysis workflow on the 10x Genomics PBMC 3k dataset using Scanpy (Python) and Seurat (R).
+Single-cell RNA-seq workflows using Scanpy (Python) and Seurat (R) on 10x Genomics PBMC data.
 
-## Dataset
+## Analyses
 
-3,000 PBMCs from a healthy donor (10x Genomics). Pre-processed count matrix — no alignment step required.
+### 1. Standard Workflow (`notebooks/pbmc3k_analysis.ipynb`)
 
-## Analysis
+Single-sample analysis of 2,700 PBMCs: QC, normalization, HVG selection, PCA, UMAP, Leiden clustering, marker gene identification, cell type annotation, and differential expression.
 
-- QC and cell filtering (mitochondrial content, gene counts)
-- Normalization and highly variable gene selection
-- PCA, neighbor graph construction, UMAP embedding
-- Leiden clustering
-- Marker gene identification and cell type annotation
-- Differential expression between clusters
+### 2. Multi-Sample Integration (`notebooks/multi_sample_integration.ipynb`)
 
-## How to run
+Integration of PBMC 3k and PBMC 4k datasets (two different donors, ~7k cells total) using Harmony batch correction. Demonstrates handling batch effects, joint clustering across samples, cell type proportion comparison, and cross-donor differential expression within cell types.
+
+### 3. Seurat Analysis (`scripts/seurat_pbmc3k.R`)
+
+Same standard workflow in R/Seurat for comparison.
+
+## Setup
 
 ```bash
-pip install -r requirements.txt
-jupyter notebook notebooks/pbmc3k_analysis.ipynb
+conda env create -f environment.yml
+conda activate scrnaseq
 ```
 
-For the Seurat analysis:
-```R
+Or with pip:
+```bash
+pip install -r requirements.txt
+```
+
+## Run
+
+```bash
+jupyter notebook notebooks/pbmc3k_analysis.ipynb
+jupyter notebook notebooks/multi_sample_integration.ipynb
 Rscript scripts/seurat_pbmc3k.R
 ```
 
 ## Results
 
-Figures and outputs saved to `results/`.
+Figures saved to `results/`. Key outputs:
+
+- QC violin plots and scatter plots
+- UMAP embeddings (before/after batch correction)
+- Cluster marker dotplots
+- Cell type proportion comparison across donors
+- Differential expression results
