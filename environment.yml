@@ -1,0 +1,17 @@
+name: scrnaseq
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - python=3.10
+  - scanpy>=1.9
+  - anndata
+  - leidenalg
+  - matplotlib
+  - seaborn
+  - pandas
+  - numpy
+  - jupyter
+  - r-base=4.3
+  - r-seurat
+  - r-ggplot2

@@ -1,0 +1,7 @@
+scanpy>=1.9
+anndata
+matplotlib
+seaborn
+pandas
+numpy
+leidenalg
